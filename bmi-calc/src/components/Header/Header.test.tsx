@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Header from './Header';
 
 test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/BMI Calculator/i);
+  render(<Header />);
+  const linkElement = screen.getByText(/Michael Allen Jr./i);
   expect(linkElement).toBeInTheDocument();
 });
