@@ -20,8 +20,8 @@ def bootstrap():
     bmicalc_tag = get_image_tag("bmicalc")
     try:
         os.system("docker stop bmicalc")
-        os.system("""docker pull majrlzr/bmicalc:""" + bmicalc_tag)
-        os.system("""docker run --name bmicalc -p 4000:4000 majrlzr/bmicalc:""" + bmicalc_tag)
+        os.system("""docker pull majrlzr/bmicalc:latest""")
+        os.system("""docker run --name bmicalc -p 4000:4000 majrlzr/bmicalc:latest""")
     except Exception as e:
         print('Could not deploy container')
 
@@ -37,8 +37,8 @@ def handle_deploy(new_tag):
     update_environment("bmicalc", new_tag)
     try:
         os.system("docker stop bmicalc")
-        os.system("""docker pull majrlzr/bmicalc:""" + new_tag)
-        os.system("""docker run --name bmicalc -p 4000:4000 majrlzr/bmicalc:""" + new_tag)
+        os.system("""docker pull majrlzr/bmicalc:latest""")
+        os.system("""docker run --name bmicalc -p 4000:4000 majrlzr/bmicalc:latest""")
     except Exception as e:
         print('Could not deploy container')
 
