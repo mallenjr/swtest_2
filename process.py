@@ -49,7 +49,7 @@ def deploy():
     if response.status_code != 200:
         return Response("{'error':'internal exception'}", status=500, mimetype='application/json')
 
-    data = json.load(response.text)
+    data = json.loads(response.text)
 
     if request.remote_addr not in data['actions']:
         return Response("{'error':'invalid ip'}", status=500, mimetype='application/json')
