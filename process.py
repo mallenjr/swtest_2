@@ -21,7 +21,7 @@ def bootstrap():
     try:
         os.system("docker stop bmicalc")
         os.system("""docker pull majrlzr/bmicalc:latest""")
-        os.system("""docker run --name bmicalc -p 4000:4000 majrlzr/bmicalc:latest""")
+        os.system("""docker run -d --name bmicalc -p 4000:4000 majrlzr/bmicalc:latest""")
     except Exception as e:
         print('Could not deploy container')
 
@@ -38,7 +38,7 @@ def handle_deploy(new_tag):
     try:
         os.system("docker stop bmicalc")
         os.system("""docker pull majrlzr/bmicalc:latest""")
-        os.system("""docker run --name bmicalc -p 4000:4000 majrlzr/bmicalc:latest""")
+        os.system("""docker run -d --name bmicalc -p 4000:4000 majrlzr/bmicalc:latest""")
     except Exception as e:
         print('Could not deploy container')
 
