@@ -7,7 +7,6 @@ RUN npm i
 FROM web-base AS web-build
 
 WORKDIR /app
-COPY --from=web-base /app/node_modules ./node_modules
 COPY ./bmi-calc ./
 
 RUN npm run build
