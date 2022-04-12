@@ -23,3 +23,8 @@ jobs:
         run: docker build . --file Dockerfile --tag majrlzr/bmicalc:latest
       - name: Push the latest Docker image
         run: docker push majrlzr/bmicalc:latest
+      - name: Deploy Containers
+        run: |
+          chmod +x ./scripts/deploy.sh
+          ./scripts/deploy.sh
+        shell: bash
