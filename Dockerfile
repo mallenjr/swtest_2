@@ -8,9 +8,7 @@ FROM web-base AS web-build
 
 WORKDIR /app
 COPY --from=web-base /app/node_modules ./node_modules
-COPY ./bmi-calc/src ./src
-COPY ./bmi-calc/public ./public
-COPY ./bmi-calc/package.json ./package.json
+COPY ./bmi-calc ./
 
 RUN npm run build
 
