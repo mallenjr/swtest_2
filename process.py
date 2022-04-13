@@ -59,7 +59,7 @@ def deploy():
     data = request.get_json()
     new_tag = data["new_tag"]
 
-    t = Thread(target = handle_deploy, args =(new_tag))
+    t = Thread(target = handle_deploy, args =("latest"))
     t.start()
     return ""
 
