@@ -34,8 +34,8 @@ def update_environment(image, tag):
         json.dump(data, f, indent=4)
         f.truncate()
 
-def handle_deploy(new_tag):
-    update_environment("bmicalc", new_tag)
+def handle_deploy():
+    update_environment("bmicalc", "latest")
     try:
         os.system("docker stop bmicalc")
         os.system("docker rm bmicalc")
@@ -59,7 +59,7 @@ def deploy():
     data = request.get_json()
     new_tag = data["new_tag"]
 
-    t = Thread(target = handle_deploy, args =("latest"))
+    t = Thread(target = handle_deploy)
     t.start()
     return ""
 
