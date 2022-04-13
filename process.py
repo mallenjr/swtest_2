@@ -53,10 +53,8 @@ def deploy():
 
     data = json.loads(response.text)
 
-    print(request.environ.get('HTTP_X_REAL_IP', request.remote_addr))
-
-    if request.environ.get('HTTP_X_REAL_IP', request.remote_addr) not in data['actions']:
-        return Response("{'error':'invalid ip'}", status=500, mimetype='application/json')
+    # if request.environ.get('HTTP_X_REAL_IP', request.remote_addr) not in data['actions']:
+    #     return Response("{'error':'invalid ip'}", status=500, mimetype='application/json')
 
     data = request.get_json()
     new_tag = data["new_tag"]
