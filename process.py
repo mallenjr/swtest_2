@@ -19,8 +19,8 @@ def get_image_tag(image):
 def bootstrap():
     bmicalc_tag = get_image_tag("bmicalc")
     try:
-        os.system("docker rm bmicalc")
         os.system("docker stop bmicalc")
+        os.system("docker rm bmicalc")
         os.system("""docker pull majrlzr/bmicalc:latest""")
         os.system("""docker run -d --name bmicalc -p 4000:4000 majrlzr/bmicalc:latest""")
     except Exception as e:
@@ -37,8 +37,8 @@ def update_environment(image, tag):
 def handle_deploy(new_tag):
     update_environment("bmicalc", new_tag)
     try:
-        os.system("docker rm bmicalc")
         os.system("docker stop bmicalc")
+        os.system("docker rm bmicalc")
         os.system("""docker pull majrlzr/bmicalc:latest""")
         os.system("""docker run -d --name bmicalc -p 4000:4000 majrlzr/bmicalc:latest""")
     except Exception as e:
